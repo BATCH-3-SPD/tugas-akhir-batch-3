@@ -1,81 +1,250 @@
 <script setup>
 import Header from "../components/Header.vue";
-import Banner from "../components/Banner.vue";
-import Sidebar from "../components/Sidebar.vue";
 </script>
 
 <template>
-  <Header />
-  <Banner />
+  <Header v-bind:namadesa="`DESA ` + namadesa"></Header>
+  <main>
+    <div class="flex">
+      <div class="flex-1 p-5">
+        <div class="max-w-xs rounded overflow-hidden bg-white shadow-lg">
+          <div class="px-6 py-5">
+            <div class="text-m mb-2">Indeks Pembangunan Pemuda</div>
+            <div v-if="loading">Loading...</div>
+            <section v-else>
+              <h1 class="font-bold text-xl mb-2">{{ dataipp.domain.ipp }}</h1>
+            </section>
+          </div>
+        </div>
+      </div>
 
-  <main class="flex">
-    <Sidebar />
+      <div class="flex-1 p-5">
+        <div class="max-w-xs rounded overflow-hidden bg-white shadow-lg">
+          <div class="px-6 py-5">
+            <div class="text-m mb-2">Jumlah Jiwa</div>
+            <div v-if="loading">Loading...</div>
+            <section v-else>
+              <h1 class="font-bold text-xl mb-2">{{ dataipp.jiwa }}</h1>
+            </section>
+          </div>
+        </div>
+      </div>
 
-    <div class="flex-1 p-10">
-      <p class="text-3xl font-semibold">Visi & Misi Desa Contoh TUgas Akhir</p>
-      <p class="text-lg font-semibold">Visi</p>
-      <p>
-        “Terwujudnya Desa Setu Yang Sejahtera dan Mandiri, ditopang Kinerja
-        Aparatur yang Profesional dalam Kerangka Budaya Bangsa didasari Keimanan
-        dan Ketaqwaan”
-      </p>
-      <p class="text-lg font-semibold">Misi</p>
-      <ul>
-        <li>
-          1. Mengembangkan system Pemerintahan Desa yang bersih dan profesional
-          serta berorientasi pada pelayanan publik dengan prinsif kerja ikhlas,
-          lakukan sekarang dan siap turun ke lapangan;
-        </li>
-        <li>
-          2. Meningkatkan dan memantapkan system perencanaan pembangunan desa
-          melalui pengoptimalan mekanisme musyawarah pembangunan desa dengan
-          melibatkan seluruh steackholder yang ada;
-        </li>
-        <li>
-          3. Membuat skala prioritas untuk kegiatan-kegiatan pembangunan yang
-          akan dilaksanakan baik pembangunan fisik atau non fisik, seperti
-          infrastruktur, perekonomian, keagamaan, Pendidikan dan kesehatan;
-        </li>
-        <li>
-          4. Meningkatkan kemampuan dan peran serta aktif masyarakat dalam
-          mengelola pembangunan berkelanjutan secara efisisen dan efektif dengan
-          memanfaatkan potensi sumber daya yang ada, baik sumber daya alam
-          maupun sumberdaya manusia;
-        </li>
-        <li>
-          5. Meningkatkan kemampuan dan pemberdayaan Lembaga-lembaga
-          kemasyarakatan yang ada didesa atau lebih mendinamisasi dan mendukung
-          seluruh proses pembangunan;
-        </li>
-        <li>
-          6. Mendorong majunya Pendidikan formal maupun nonformal seperti
-          pesantren, LPK, diklat serta penyuluhan pertanian yang mudah diakses
-          dan dinikmati seluruh warga masyarakat, guna menghasilkan insan
-          intelektual, berakhlak mulia, inovatif dan entrepreneur;
-        </li>
-        <li>
-          7. Menyalurkan segala bentuk bantuan dari Pemerintah Kabupaten,
-          Provinsi dan Pusat sesuai dengan peruntukannya dan mencegah terjadinya
-          penyimpangan dan kebocoran;
-        </li>
-        <li>
-          8. Menjalin sinergitas dengan instansi atau Lembaga terkait dan pihak
-          swasta guna optimalisasi suatu tujuan lebih baik dan lebih maksimal;
-        </li>
-        <li>
-          9. Responsive dan aspiratif atas segala bentuk kebutuhan atau
-          keinginan dan permasalahan yang terjadi ditengah masyarakat yang
-          majemuk dan dinamis;
-        </li>
-        <li>
-          10. Membina dan memantapkankehidupan gotong royongsebagai basis dan
-          modal dasar pembangunan desa, yang pada hakikatnyajuga merupakan
-          karakter dasar dari masyarakat desa dan juga bangsa Indonesia.
-        </li>
-      </ul>
+      <div class="flex-1 p-5">
+        <div class="max-w-xs rounded overflow-hidden bg-white shadow-lg">
+          <div class="px-6 py-5">
+            <div class="text-m mb-2">Jumlah Pemuda</div>
+            <div v-if="loading">Loading...</div>
+            <section v-else>
+              <h1 class="font-bold text-xl mb-2">{{ dataipp.pemuda }}</h1>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div v-if="loading">Loading...</div>
+
+        <section v-else>
+          <h1>IPP : {{ dataipp.domain.ipp }}</h1>
+
+          <p>Provinsi : {{ dataipp.provinsi[0] }}</p>
+          <p>
+            Kabupaten/Kota :
+            {{ dataipp.kabkot[0] }}
+          </p>
+          <p>Kecamatan : {{ dataipp.kecamatan[0] }}</p>
+          <p>Desa/Kelurahan : {{ dataipp.nama_deskel[0] }}</p>
+        </section> -->
+      <!-- </div> -->
+    </div>
+
+    <div class="flex">
+      <!-- <div class="flex-1 p-5">
+        <div class="max-w-xs rounded overflow-hidden bg-white shadow-lg">
+          <div class="px-6 py-5">
+            <div class="text-m mb-2">Indikator Pembangunan Pemuda</div>
+            <div v-if="loading">Loading...</div>
+            <BarChart />
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="flex-1 p-10">
+        <div>
+          <BarChart />
+        </div>
+      </div>
+
+      <div class="flex-1 p-10">
+        <div>
+          <BarChart />
+        </div>
+      </div> -->
+    </div>
+
+    <div
+      class="max-w-none rounded overflow-hidden bg-white shadow-lg ml-5 mr-5"
+    >
+      <div class="px-6 py-10">
+        <Map />
+      </div>
     </div>
   </main>
 </template>
+
+<script>
+import BarChart from "../components/charts/BarChart.vue";
+import axios from "axios";
+import Map from "../components/Map.vue";
+import { Bar } from "vue-chartjs";
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from "chart.js";
+
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+);
+
+const post = {
+  id: 1,
+  title: "My Journey with Vue",
+};
+
+export default {
+  name: "BarChart",
+  components: { BarChart, Map },
+  data() {
+    return {
+      kode: null,
+      dataipp: null,
+      namadesa: "Nama Desa",
+      chartDataList: [],
+      loading: true,
+      errored: false,
+    };
+  },
+  methods: {
+    getIpp() {
+      axios
+        .get(
+          "https://core.desapresisi.id/api/v1/indeks_pemuda?kode=" + this.kode
+        )
+        .then((response) => {
+          // handle success
+          this.dataipp = response.data;
+          this.namadesa = response.data.nama_deskel[0].toUpperCase();
+          // console.log(response.data);
+
+          const labels = [];
+          const data = [];
+
+          for (const key in response.data.domain) {
+            if (
+              Object.prototype.hasOwnProperty.call(response.data.domain, key)
+            ) {
+              const responsescampuran = key;
+              labels.push(responsescampuran);
+              data.push(response.data.domain[key]);
+            }
+          }
+
+          const optionsObject = {
+            labels: labels,
+            data: data,
+          };
+
+          this.chartDataList = optionsObject;
+          console.log(optionsObject);
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+          this.errored = true;
+        })
+        .finally(() => (this.loading = false));
+    },
+    createCharts() {
+      this.chartDataList.forEach((chartData) => {
+        console.log(chartData);
+        const canvasId = "myChart";
+        const canvasElement = document.getElementById(canvasId);
+
+        // Check if the canvas element exists
+        if (canvasElement) {
+          const ctx = canvasElement.getContext("2d");
+          const existingChart = ChartJS.getChart(ctx);
+
+          // Destroy the existing chart if it exists
+          if (existingChart) {
+            existingChart.destroy();
+          }
+
+          new Chart(ctx, {
+            type: "BarChart",
+            data: {
+              labels: [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+              ],
+              datasets: [
+                {
+                  data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
+                },
+              ],
+            },
+            options: {
+              parsing: false,
+              normalized: true,
+              animation: false,
+              responsive: true, // Disable chart responsiveness
+              maintainAspectRatio: false, // Disable aspect ratio constraints
+              width: 50, // Set the width to 50 pixels
+              height: 200, // Set the height to 200 pixels (adjust as needed)
+              plugins: {
+                legend: {
+                  display: true, // Hide the legend
+                },
+                tooltip: {
+                  callbacks: {},
+                },
+                onClick: function (event, elements) {},
+              },
+            },
+          });
+        }
+      });
+    },
+  },
+  mounted() {
+    const queryParameters = this.$route.query;
+    // console.log(queryParameters.kode);
+    this.kode = queryParameters.kode;
+    this.getIpp();
+    // this.createCharts();
+  },
+};
+</script>
 
 <style>
 body {
